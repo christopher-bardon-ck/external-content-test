@@ -14,9 +14,10 @@
             // Only post message if the parent origin is the expected one
             if (window.parent && document.referrer) {
                 console.log('|IFRAME| --- posting message to parent: ', document.referrer)
-                setTimeout(() => {
-                    window.parent.postMessage(JSON.stringify({loaded: 'true'}), document.referrer);
-                }, 5000)
+                window.parent.postMessage(JSON.stringify({loaded: 'true'}), document.referrer);
+                // setTimeout(() => {
+                    
+                // }, 5000)
             } else {
                 console.log('|IFRAME| --- issue with expected parent:', document.referrer)
             }
